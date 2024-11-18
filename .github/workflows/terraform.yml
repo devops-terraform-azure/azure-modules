@@ -100,6 +100,13 @@ jobs:
         cat pipeline.auto.tfvars
         az --version
 
+    - name: Ensure Azure CLI is in PATH
+      run: echo "$(which az)" # This will show the path of the `az` CLI
+
+    - name: Verify Azure CLI Login
+      run: az account show
+
+
     # Generates an execution plan for Terraform
     - name: Terraform Plan
       run: terraform plan
