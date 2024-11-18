@@ -1,7 +1,7 @@
 module "linux_web_app" {
   source                        = "git::https://github.com/devops-terraform-azure/iac-modules.git//app-service/linux?ref=main"
   staging_slot_enabled          = true
-  app_service_name              = module.app_service_plan.service_plan_name
+  app_service_name              = "${module.app_service_plan.service_plan_name}-${random_id.name.hex}"
   service_plan_id               = module.app_service_plan.service_plan_id
   location                      = module.rg.resource_group_location
   resource_group_name           = module.rg.resource_group_name
@@ -23,7 +23,7 @@ module "linux_web_app" {
 
 module "app_service_plan" {
   source              = "git::https://github.com/devops-terraform-azure/iac-modules.git//app-service-plan?ref=main"
-  appservice_name     = "asp-devsecops"
+  appservice_name     = "asp-devsecops-${random_id.name.hex}"
   resource_group_name = module.rg.resource_group_name
   location            = module.rg.resource_group_location
   os_type             = "Linux"
@@ -35,9 +35,13 @@ module "app_service_plan" {
 
 module "rg" {
   source              = "git::https://github.com/devops-terraform-azure/iac-modules.git//resource-group?ref=main"
-  resource_group_name = "rg-devsecops-001"
+  resource_group_name = "rg-devsecops-001-${random_id.name.hex}"
   location            = "centralus"
   tags = {
     "name" = "devsecops"
   }
+}
+
+resource "random_id" "name" {
+  byte_length = 2
 }
