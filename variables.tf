@@ -8,7 +8,7 @@
 #   type        = string
 # }
 
-variable "TF_VAR_SUBSCRIPTION_ID" {
+variable "ARM_SUBSCRIPTION_ID" {
   description = "The Subscription ID"
   type        = string
 }

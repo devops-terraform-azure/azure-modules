@@ -50,12 +50,14 @@ on:
   pull_request:
 
 permissions:
-  id-token: write
+  # id-token: write
   contents: read
 
 jobs:
   terraform:
     name: 'Terraform'
+    env:
+      ARM_SUBSCRIPTION_ID: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
     runs-on: ubuntu-latest
     environment: production
 
@@ -90,10 +92,6 @@ jobs:
     # Generates an execution plan for Terraform
     - name: Terraform Plan
       run: terraform plan
-      # with:
-      #   creds: '{"subscriptionId":"${{ secrets.AZURE_SUBSCRIPTION_ID }}"}'
-      env:
-        TF_VAR_SUBSCRIPTION_ID: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
 
       # On push to "main", build or change infrastructure according to Terraform configuration files
       # Note: It is recommended to set up a required "strict" status check in your repository for "Terraform Cloud". See the documentation on "strict" required status checks for more information: https://help.github.com/en/github/administering-a-repository/types-of-required-status-checks

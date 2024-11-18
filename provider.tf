@@ -23,5 +23,5 @@ provider "azurerm" {
   # tenant_id       = var.AZURE_TENANT_ID
   # subscription_id = var.AZURE_SUBSCRIPTION_ID
   # client_secret   = var.AZURE_CLIENT_SECRET
-  subscription_id = var.TF_VAR_SUBSCRIPTION_ID
+  subscription_id = var.ARM_SUBSCRIPTION_ID
 }
