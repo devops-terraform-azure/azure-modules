@@ -8,7 +8,7 @@
 #   type        = string
 # }
 
-variable "AZURE_SUBSCRIPTION_ID" {
+variable "TF_VAR_SUBSCRIPTION_ID" {
   description = "The Subscription ID"
   type        = string
 }
