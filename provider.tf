@@ -19,8 +19,8 @@ provider "azurerm" {
   features {
 
   }
-  client_id       = var.TF_VARS_client_id
-  tenant_id       = var.TF_VARS_tenant_id
-  subscription_id = var.TF_VARS_subscription_id
-  client_secret   = var.TF_VARS_client_secret
+  client_id       = var.TF_VARS_CLIENT_ID
+  tenant_id       = var.TF_VARS_TENANT_ID
+  subscription_id = var.TF_VARS_SUBSCRIPTION_ID
+  client_secret   = var.TF_VARS_CLIENT_SECRET
 }
