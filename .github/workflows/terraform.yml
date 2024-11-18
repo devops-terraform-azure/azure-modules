@@ -94,8 +94,9 @@ jobs:
       id: vars
       run: |-
         cat > pipeline.auto.tfvars <<EOF
-        image_tag = "${{ secrets.AZURE_SUBSCRIPTION_ID }}"
+        AZURE_SUBSCRIPTION_ID = "${{ secrets.AZURE_SUBSCRIPTION_ID }}"
         EOF
+        ls -al
 
     # Generates an execution plan for Terraform
     - name: Terraform Plan
