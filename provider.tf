@@ -7,8 +7,7 @@ terraform {
     }
   }
   backend "remote" {
-    organization = ""
-    token        = ""
+    organization = "AzureCraft"
 
     workspaces {
       name = "dev"
