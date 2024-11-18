@@ -97,7 +97,7 @@ jobs:
         AZURE_SUBSCRIPTION_ID = "${{ secrets.AZURE_SUBSCRIPTION_ID }}"
         EOF
         ls -al
-        cat pipeline.auto.tfvars
+        # cat pipeline.auto.tfvars
         az --version
 
     # Generates an execution plan for Terraform
