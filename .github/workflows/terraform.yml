@@ -89,6 +89,14 @@ jobs:
     - name: Terraform Format
       run: terraform fmt -check
 
+    - name: Setup Terraform variables
+      # working-directory: ./terraform
+      id: vars
+      run: |-
+        cat > pipeline.auto.tfvars <<EOF
+        image_tag = "${{ secrets.AZURE_SUBSCRIPTION_ID }}"
+        EOF
+
     # Generates an execution plan for Terraform
     - name: Terraform Plan
       run: terraform plan
