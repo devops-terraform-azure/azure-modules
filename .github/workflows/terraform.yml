@@ -84,12 +84,12 @@ jobs:
 
     # Generates an execution plan for Terraform
     - name: Terraform Plan
-      run: terraform plan -input=false
+      run: terraform plan
       env:
-        TF_VARS_client_id: ${{ secrets.production.TF_VARS_CLIENT_ID }}
-        TF_VARS_tenant_id: ${{ secrets.production.TF_VARS_TENANT_ID }}
-        TF_VARS_subscription_id: ${{ secrets.production.TF_VARS_SUBSCRIPTION_ID }}
-        TF_VARS_client_secret: ${{ secrets.production.TF_VARS_CLIENT_SECRET }}
+        TF_VARS_client_id: ${{ secrets.TF_VARS_CLIENT_ID }}
+        TF_VARS_tenant_id: ${{ secrets.TF_VARS_TENANT_ID }}
+        TF_VARS_subscription_id: ${{ secrets.TF_VARS_SUBSCRIPTION_ID }}
+        TF_VARS_client_secret: ${{ secrets.TF_VARS_CLIENT_SECRET }}
 
       # On push to "main", build or change infrastructure according to Terraform configuration files
       # Note: It is recommended to set up a required "strict" status check in your repository for "Terraform Cloud". See the documentation on "strict" required status checks for more information: https://help.github.com/en/github/administering-a-repository/types-of-required-status-checks
