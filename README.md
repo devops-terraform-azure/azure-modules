@@ -1,1 +1,1 @@
-# resources
+# Azure Resources [![Terraform](https://github.com/devops-terraform-azure/azure-modules/actions/workflows/terraform.yml/badge.svg)](https://github.com/devops-terraform-azure/azure-modules/actions/workflows/terraform.yml)
